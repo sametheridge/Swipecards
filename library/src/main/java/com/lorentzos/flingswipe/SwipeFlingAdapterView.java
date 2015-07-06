@@ -120,7 +120,7 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
         }
 
         mInLayout = false;
-        
+
         if(adapterCount <= MIN_ADAPTER_STACK) mFlingListener.onAdapterAboutToEmpty(adapterCount);
     }
 
@@ -328,6 +328,14 @@ public class SwipeFlingAdapterView extends BaseFlingAdapterView {
         void onRightCardExit(Object dataObject);
         void onAdapterAboutToEmpty(int itemsInAdapter);
         void onScroll(float scrollProgressPercent);
+    }
+
+    /**
+    * Reset the cards after changing the too card on the stack
+    **/
+    public void reset() {
+        this.mActiveCard = null;
+        requestLayout();
     }
 
 
